@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "66316572443",
+    "firebase_url": "https://tugasmobilesurya1-default-rtdb.firebaseio.com",
+    "project_id": "tugasmobilesurya1",
+    "storage_bucket": "tugasmobilesurya1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66316572443:android:914c7bac073e4a915be5be",
+        "android_client_info": {
+          "package_name": "com.example.tugasandroidkel1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy4AkY-zld8cPlzMucc3kh9XGYYzraM-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
