@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tugasandroidkel1/components/cardreusable.dart';
 import 'package:tugasandroidkel1/controller/dashboard_controller.dart';
+import 'package:tugasandroidkel1/routes/routes.dart';
 
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
+
   final MealController controller = Get.put(MealController());
 
   @override
@@ -25,15 +27,13 @@ class DashboardPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.restaurant_menu,
-                          size: 80,
-                          color: Colors.grey,
-                        ),
+                        Icon(Icons.restaurant_menu,
+                            size: 80, color: Colors.grey),
                         SizedBox(height: 16),
                         Text(
                           'Belum ada menu',
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
+                          style:
+                              TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                       ],
                     ),
@@ -43,10 +43,11 @@ class DashboardPage extends StatelessWidget {
                 return ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: controller.meals.length,
-                  separatorBuilder: (context, index) =>
+                  separatorBuilder: (_, __) =>
                       const SizedBox(height: 16),
                   itemBuilder: (context, index) {
                     final meal = controller.meals[index];
+
                     return MealLogCard(
                       date: meal.date,
                       pokok: meal.pokok,
@@ -54,7 +55,17 @@ class DashboardPage extends StatelessWidget {
                       lauk: meal.lauk,
                       buah: meal.buah,
                       onEdit: () {
-                        //ngdeit
+                        Get.toNamed(
+                          AppRoutes.editPage,
+                          arguments: {
+                            'id': meal.id,
+                            'tanggal': meal.date,
+                            'pokok': meal.pokok,
+                            'lauk': meal.lauk,
+                            'sayur': meal.sayur,
+                            'buah': meal.buah,
+                          },
+                        );
                       },
                     );
                   },
@@ -64,9 +75,10 @@ class DashboardPage extends StatelessWidget {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //nantih
+          Get.toNamed(AppRoutes.addPage);
         },
         backgroundColor: Colors.white,
         elevation: 4,
@@ -90,35 +102,23 @@ class DashboardPage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-
-            child: const Text(
-              'MENU MBG',
-              style: TextStyle(
-                color: Color(0xFF1E3A5F),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.2,
-              ),
+          const Text(
+            'MENU MBG',
+            style: TextStyle(
+              color: Color(0xFF1E3A5F),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
             ),
           ),
           const Spacer(),
-          Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              color: const Color(0xFF1E3A5F),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Image.asset(
-                'assets/images/b.png',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Image.asset(
+              'assets/images/b.png',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
             ),
           ),
         ],
