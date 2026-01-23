@@ -7,7 +7,7 @@ import 'package:tugasandroidkel1/routes/routes.dart';
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
 
-  final MealController controller = Get.put(MealController());
+  final controller = Get.find<MealController>();
 
   @override
   Widget build(BuildContext context) {
