@@ -8,7 +8,7 @@ import 'package:tugasandroidkel1/controller/add_controller.dart';
 class AddPage extends StatelessWidget {
   AddPage({super.key});
 
-  final AddController controller = Get.put(AddController());
+  final controller = Get.find<AddController>();
 
   @override
   Widget build(BuildContext context) {

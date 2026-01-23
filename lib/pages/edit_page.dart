@@ -7,7 +7,7 @@ import 'package:tugasandroidkel1/controller/edit_controller.dart';
 class EditPage extends StatelessWidget {
   EditPage({super.key});
 
-  final EditController controller = Get.put(EditController());
+  final controller = Get.find<EditController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +33,15 @@ class EditPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-
-            /// === TANGGAL (BISA DI KLIK) ===
             InkWell(
               borderRadius: BorderRadius.circular(30),
               onTap: () => controller.pilihTanggal(context),
               child: Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 18,
+                  vertical: 14,
+                ),
                 decoration: BoxDecoration(
                   color: const Color(0xFF9EC3D8),
                   borderRadius: BorderRadius.circular(30),
@@ -90,10 +90,11 @@ class EditPage extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            CustomButton(
-              text: 'Update',
-              onPressed: controller.update,
-            ),
+            CustomButton(text: 'Update', onPressed: controller.updateMenu),
+
+            const SizedBox(height: 30),
+
+            CustomButton(text: 'Delete', onPressed: controller.deleteMenu, backgroundColor: Colors.red,),
           ],
         ),
       ),

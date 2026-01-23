@@ -33,7 +33,7 @@ class AddController extends GetxController {
       Get.snackbar(
         'Error',
         'Semua field harus diisi',
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
       );
       return;
     }
